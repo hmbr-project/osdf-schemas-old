@@ -1,0 +1,58 @@
+{
+  "type": "object",
+  "description": "Characterizes subjects from which samples were obtained. Currently very limited because of HIPAA/privacy.",
+  "properties": {
+    "rand_subject_id": {
+      "description": "Randomized subject id used to anonymize subject identity.",
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 32
+    },
+    "gender": {
+      "description": "The subject's sex.",
+      "type": "string",
+      "enum": [
+        "male",
+        "female",
+        "unknown"
+      ]
+    },
+    "race": {
+      "description": "The subject's race/ethnicity.",
+      "type": "string",
+      "enum": [
+        "african_american",
+        "american_indian_or_alaska_native",
+        "asian",
+        "caucasian",
+        "hispanic_or_latino",
+        "native_hawaiian",
+        "ethnic_other",
+        "unknown"
+      ]
+    },
+    "subtype": {
+      "description": "The subtype of the subject.",
+      "type": "string"
+    },
+    "tags": {
+      "description": "An array of descriptive strings to make the node 'taggable'.",
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "_search": {
+      "description": "Additional data to enhance search.",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "required": [
+    "rand_subject_id",
+    "gender",
+    "subtype",
+    "tags"
+  ]
+}

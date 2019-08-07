@@ -1,0 +1,8 @@
+{
+  "hmbr": {
+    "acl": { "read": [ "all" ], "write": [ "hmbr" ] },
+    "description": "This project will provide a comprehensive platform for discovery, validation, and early-stage translation of novel therapeutics derived from the microbiome.",
+    "title": "HMBR - Human Microbiome Bioactives Resource",
+    "url": "https://www.microbiome-bioactives.org"
+  }
+}

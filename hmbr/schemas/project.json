@@ -1,0 +1,45 @@
+{
+  "type": "object",
+  "description": "The top level object in the Integrative Human Microbiome Project.",
+  "properties": {
+    "description": {
+      "description": "A longer description of the project",
+      "type": "string",
+      "minLength": 3,
+      "maxLength": 512
+    },
+    "name": {
+      "description": "The name of the project within which the sequencing was organized.",
+      "type": "string",
+      "minLength": 3,
+      "maxLength": 128
+    },
+    "mixs": {
+      "description": "Minimal information for any system.",
+      "$ref": "mixs"
+    },
+    "subtype": {
+      "description": "The subtype of the project: healthy_human, ihmp, or demo.",
+      "type": "string"
+    },
+    "tags": {
+      "description": "An array of descriptive strings to make the node 'taggable'.",
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "_search": {
+      "description": "Additional data to enhance search.",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "required": [
+    "description",
+    "name",
+    "mixs",
+    "tags"
+  ]
+}

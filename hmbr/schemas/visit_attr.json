@@ -1,0 +1,110 @@
+{
+  "type": "object",
+  "description": "Visit attribute node to capture public visit data specific to individual project.",
+  "properties": {
+    "clinical_patient": {
+      "description": "Clinical patient data",
+      "$ref": "clinical_patient"
+    },
+    "comment": {
+      "description": "Free-text comment.",
+      "type": "string",
+      "maxLength": 512
+    },
+    "dietary_log": {
+      "description": "Dietrary log",
+      "$ref": "dietary_log"
+    },
+    "dietary_log_today": {
+      "description": "Dietary log (today)",
+      "$ref": "dietary_log_today"
+    },
+    "disease": {
+      "description": "Disease metadata",
+      "$ref": "disease"
+    },
+    "exercise": {
+      "description": "Exercise metadata",
+      "$ref": "exercise"
+    },
+    "health_assessment": {
+      "description": "Health assessment metadata",
+      "$ref": "health_assessment"
+    },
+    "hrt": {
+      "description": "HRT metadata",
+      "$ref": "hrt"
+    },
+    "medications": {
+      "description": "Medication metadata",
+      "$ref": "medications"
+    },
+    "mother_child": {
+      "description": "Indicates whether the samples are from mother (study participant) or infant, specific to VCU study.",
+      "type": "string",
+      "enum": [
+        "participant",
+        "child"
+      ]
+    },
+    "psych": {
+      "description": "Psychiatric metadata",
+      "$ref": "psych"
+    },
+    "study": {
+      "description": "One of the 3 studies that are part of the iHMP.",
+      "$ref": "studies"
+    },
+    "subproject": {
+      "description": "Tag indicating subprojects the visit belongs to, currently limited to VCU but controlled vocabulary could be expanded to include more projects.",
+      "type": "string",
+      "enum": [
+        "earlyPregStudy",
+        "termPregStudy",
+        "preTermBirthStudy"
+      ]
+    },
+    "subtype": {
+      "description": "The subtype of the visit attribute.",
+      "type": "string"
+    },
+    "survey_id": {
+      "description": "Center specific survey identifier.",
+      "type": "string"
+    },
+    "tags": {
+      "description": "An array of descriptive strings to make the node 'taggable'.",
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "tests": {
+      "description": "Tests metadata",
+      "$ref": "tests"
+    },
+    "time_during_pregnancy": {
+      "description": "Time of sampling during the course of pregnancy,",
+      "type": "string",
+      "enum": [
+        "first_trimester",
+        "second_trimester",
+        "third_trimester",
+        "labor_and_delivery",
+        "postpartum",
+        "unknown"
+      ]
+    },
+    "_search": {
+      "description": "Additional data to enhance search.",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "required": [
+    "study",
+    "subtype",
+    "tags"
+  ]
+}

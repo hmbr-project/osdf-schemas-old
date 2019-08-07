@@ -1,0 +1,127 @@
+{
+  "type": "object",
+  "description": "A general node to capture abundance matrices of varying data types.",
+  "properties": {
+    "checksums": {
+      "description": "One or more checksums used to ensure file integrity.",
+      "type": "object",
+      "properties": {
+        "md5": {
+          "type": "string",
+          "pattern": "^[a-f\\d]{32}$"
+        },
+        "sha1": {
+          "type": "string",
+          "pattern": "^[a-f\\d]{40}$"
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[a-f\\d]{64}$"
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "md5"
+      ]
+    },
+    "comment": {
+      "description": "Free-text comment.",
+      "type": "string",
+      "maxLength": 512
+    },
+    "format": {
+      "description": "The file format of the matrix file, e.g. tbl, csv, biom.",
+      "type": "string",
+      "enum": [
+        "tbl",
+        "csv",
+        "biom"
+      ]
+    },
+    "format_doc": {
+      "description": "URL for documentation of file format.",
+      "type": "string",
+      "format": "uri"
+    },
+    "matrix_type": {
+      "description": "Identifies the type of matrix, e.g. community, functional, proteomic, lipidomic, transcriptomic.",
+      "type": "string",
+      "enum": [
+        "16s_community",
+        "wgs_community",
+        "wgs_functional",
+        "microb_proteomic",
+        "microb_lipidomic",
+        "microb_cytokine",
+        "microb_metabolome",
+        "microb_metatranscriptome",
+        "host_proteomic",
+        "host_lipidomic",
+        "host_cytokine",
+        "host_metabolome",
+        "host_transcriptome",
+        "host_serology"
+      ]
+    },
+    "parameters": {
+      "description": "Free-text at this point, but needs to be configured to capture parameters used to generate abundance matrix, whether that is free text, CV of variables, or command tbd",
+      "type": "string"
+    },
+    "private_files": {
+      "description": "Flag to indicate whether the data file(s) are private or not.",
+      "type": "boolean"
+    },
+    "sop": {
+      "description": "URL pointing to a description of the process used to generate the matrix.",
+      "type": "string",
+      "format": "uri"
+    },
+    "size": {
+      "description": "The size of the file in bytes.",
+      "type": "integer",
+      "minimum": 0
+    },
+    "study": {
+      "description": "One of the 3 studies that are part of the iHMP.",
+      "$ref": "studies"
+    },
+    "subtype": {
+      "description": "The subtype of the abundance matrix.",
+      "type": "string"
+    },
+    "tags": {
+      "description": "An array of descriptive strings to make the node 'taggable'.",
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "urls": {
+      "description": "An array of URL from where the file can be obtained, http, ftp, fasp, etc...",
+      "type": "array",
+      "items": {
+        "type": "string",
+        "format": "uri"
+      },
+      "minItems": 1
+    },
+    "_search": {
+      "description": "Additional data to enhance search.",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "required": [
+    "checksums",
+    "comment",
+    "format",
+    "format_doc",
+    "matrix_type",
+    "size",
+    "study",
+    "subtype",
+    "tags",
+    "urls"
+  ]
+}
